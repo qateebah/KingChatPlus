@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>كيان شات | Kayan Chat</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            direction: rtl;
+            text-align: center;
+            background-color: #f4f4f4;
+            padding-top: 60px;
+        }
+        /* رأس الصفحة */
+        .header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: #333;
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            z-index: 1000;
+        }
+        .header img {
+            width: 30px;
+            height: 20px;
+            border-radius: 50%;
+        }
+        .header h1 {
+            flex-grow: 1;
+            font-size: 18px;
+        }
+        .menu-button {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+        }
+        /* القائمة الجانبية */
+        .sidebar {
+            position: fixed;
+            top: 0;
+            right: -250px;
+            width: 250px;
+            height: 100%;
+            background: #444;
+            padding-top: 60px;
+            transition: 0.3s;
+        }
+        .sidebar a {
+            display: block;
+            padding: 10px;
+            color: white;
+            text-decoration: none;
+            border-bottom: 1px solid #666;
+        }
+        .sidebar a:hover {
+            background: #666;
+        }
+        .show-sidebar {
+            right: 0;
+        }
+        /* أزرار الواجهة */
+        .buttons {
+            margin: 20px 0;
+        }
+        .buttons button {
+            padding: 10px 15px;
+            margin: 5px;
+            border: none;
+            cursor: pointer;
+            background: #007bff;
+            color: white;
+            border-radius: 5px;
+        }
+        /* مربع الدردشة */
+        .chat-box {
+            width: 100%;
+            height: 400px;
+            background: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            overflow-y: auto;
+            padding: 10px;
+            margin-top: 10px;
+        }
+        .chat-box .message {
+            padding: 8px;
+            margin-bottom: 10px;
+            background: #f1f1f1;
+            border-radius: 5px;
+            display: inline-block;
+            max-width: 80%;
+        }
+        .chat-box .message.user {
+            background: #007bff;
+            color: white;
+            align-self: flex-end;
+        }
+        .chat-box .message.bot {
+            background: #e1e1e1;
+            color: black;
+            align-self: flex-start;
+        }
+        /* إرسال الرسالة */
+        .input-box {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+        .input-box input {
+            width: 80%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+        .input-box button {
+            width: 15%;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .input-box button:hover {
+            background: #0056b3;
+        }
+        /* أيقونات التواصل الاجتماعي */
+        .social-icons {
+            position: fixed;
+            bottom: 100px;
+            left: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .social-icons a {
+            width: 40px;
+            height: 40px;
+            background-size: cover;
+            border-radius: 50%;
+            display: block;
+        }
+        /* خلفيات الأيقونات */
+        .facebook { background-image: url('https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg'); }
+        .twitter { background-image: url('profile.jpg'); }
+        .snapchat { background-image: url('sn.jpg'); }
+        .whatsapp { background-image: url('https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg'); }
+        .telegram { background-image: url('tl.jpg'); }
+        .tiktok { background-image: url('tk.jpg'); }
+        .youtube { background-image: url('yu.jpg'); }
+        .email { background-image: url('profile.jpg'); }
+    </style>
+</head>
+<body>
+
+    <!-- رأس الصفحة -->
+    <div class="header">
+        <img src="profile.jpg" alt="الصورة الشخصية">
+        <h1>كيان شات | Kayan Chat</h1>
+        <button class="menu-button" onclick="toggleMenu()">☰</button>
+    </div>
+
+    <!-- القائمة الجانبية -->
+    <div class="sidebar" id="sidebar">
+        <a href="h1.html">الرئيسية</a>
+        <a href="h2.html">الدردشة</a>
+        <a href="h3.html">دردشة فردية</a>
+        <a href="h4.html">دردشة جماعية</a>
+        <a href="h5.html">صفحة الإعدادات</a>
+        <a href="h6.html">صفحة تسجيل الدخول</a>
+        <a href="h7.html">صفحة تسجيل الاشتراك</a>
+        <a href="h8.html">صفحة من نحن</a>
+        <a href="h9.html">صفحة إنشاء مجموعة جديدة</a>
+        <a href="h10.html">صفحة ابحث عن محادثات عشوائية</a>
+    </div>
+
+    <!-- مربع الدردشة -->
+    <div class="chat-box" id="chat-box">
+        <div class="message bot">مرحباً! كيف يمكنني مساعدتك اليوم؟</div>
+    </div>
+
+    <!-- إرسال الرسالة -->
+    <div class="input-box">
+        <input type="text" id="user-message" placeholder="اكتب رسالتك هنا...">
+        <button onclick="sendMessage()">إرسال</button>
+    </div>
+
+    <!-- أزرار الواجهة -->
+    <div class="buttons">
+        <button>الدردشة</button>
+        <button>المجموعات</button>
+        <button>دردشة عشوائية</button>
+        <button>البحث</button>
+        <button>الإعدادات</button>
+    </div>
+
+    <!-- أيقونات التواصل الاجتماعي -->
+    <div class="social-icons">
+        <a href="https://www.facebook.com" class="facebook" target="_blank"></a>
+        <a href="https://www.twitter.com" class="twitter" target="_blank"></a>
+        <a href="https://www.snapchat.com" class="snapchat" target="_blank"></a>
+        <a href="https://www.whatsapp.com" class="whatsapp" target="_blank"></a>
+        <a href="https://www.telegram.org" class="telegram" target="_blank"></a>
+        <a href="https://www.tiktok.com" class="tiktok" target="_blank"></a>
+        <a href="https://www.youtube.com" class="youtube" target="_blank"></a>
+        <a href="mailto:example@example.com" class="email"></a>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            var sidebar = document.getElementById("sidebar");
+            sidebar.classList.toggle("show-sidebar");
+        }
+
+        document.addEventListener("click", function (event) {
+            var sidebar = document.getElementById("sidebar");
+            var menuButton = document.querySelector(".menu-button");
+            if (!sidebar.contains(event.target) && !menuButton.contains(event.target)) {
+                sidebar.classList.remove("show-sidebar");
+            }
+        });
+
+        function sendMessage() {
+            var message = document.getElementById("user-message").value;
+            if (message.trim() !== "") {
+                var messageElement = document.createElement("div");
+                messageElement.classList.add("message", "user");
+                messageElement.textContent = message;
+
+                document.getElementById("chat-box").appendChild(messageElement);
+                document.getElementById("user-message").value = ""; // Clear the input
+
+                // Scroll to bottom
+                document.getElementById("chat-box").scrollTop = document.getElementById("chat-box").scrollHeight;
+            }
+        }
+    </script>
+
+</body>
+</html>

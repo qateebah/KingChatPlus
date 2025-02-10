@@ -1,1 +1,168 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>كيان شات</title>
+    <style>
+        /* تنسيق عام */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            text-align: center;
+            direction: rtl;
+        }
+        
+        /* رأس الصفحة */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #0078ff;
+            color: white;
+            padding: 10px 20px;
+        }
+        .header img {
+            width: 30px;
+            height: 20px;
+            border-radius: 50%;
+        }
+        .header h1 {
+            flex: 1;
+            text-align: center;
+        }
+        .menu-btn {
+            font-size: 20px;
+            cursor: pointer;
+        }
+        
+        /* القائمة الجانبية */
+        .sidebar {
+            position: fixed;
+            right: -250px;
+            top: 0;
+            width: 250px;
+            height: 100%;
+            background: #333;
+            color: white;
+            transition: 0.3s;
+            padding-top: 20px;
+            text-align: right;
+        }
+        .sidebar a {
+            display: block;
+            padding: 10px;
+            color: white;
+            text-decoration: none;
+        }
+        .sidebar a:hover {
+            background: #444;
+        }
+        
+        /* أزرار الواجهة */
+        .buttons {
+            margin: 20px 0;
+        }
+        .buttons button {
+            background: #0078ff;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            margin: 5px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        
+        /* أزرار التواصل الاجتماعي */
+        .social-buttons {
+            position: fixed;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        .social-buttons a {
+            display: block;
+            background: #0078ff;
+            color: white;
+            text-align: center;
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+            margin: 5px 0;
+            border-radius: 50%;
+            font-size: 14px;
+            text-decoration: none;
+        }
+        .social-buttons a:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
 
+    <!-- رأس الصفحة -->
+    <div class="header">
+        <img src="profile.jpg" alt="صورة">
+        <h1>كيان شات - Kayan Chat</h1>
+        <div class="menu-btn" onclick="toggleMenu()">☰</div>
+    </div>
+
+    <!-- القائمة الجانبية -->
+    <div id="sidebar" class="sidebar">
+        <a href="#">الرئيسية</a>
+        <a href="#">الدردشة</a>
+        <a href="#">دردشة فردية</a>
+        <a href="#">دردشة جماعية</a>
+        <a href="#">الإعدادات</a>
+        <a href="#">تسجيل الدخول</a>
+        <a href="#">تسجيل الاشتراك</a>
+        <a href="#">من نحن</a>
+        <a href="#">إنشاء مجموعة جديدة</a>
+        <a href="#">ابحث عن محادثات عشوائية</a>
+    </div>
+
+    <!-- أزرار الواجهة -->
+    <div class="buttons">
+        <button>دردشة</button>
+        <button>المجموعات</button>
+        <button>دردشة عشوائية</button>
+        <button>بحث</button>
+        <button>الإعدادات</button>
+    </div>
+
+    <!-- أزرار التواصل الاجتماعي -->
+    <div class="social-buttons">
+        <a href="#" title="فيسبوك">F</a>
+        <a href="#" title="إكس">X</a>
+        <a href="#" title="سناب شات">S</a>
+        <a href="#" title="واتساب">W</a>
+        <a href="#" title="تيليجرام">T</a>
+        <a href="#" title="تيك توك">TT</a>
+        <a href="#" title="يوتيوب">Y</a>
+        <a href="mailto:email@example.com" title="بريد إلكتروني">@</a>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            let sidebar = document.getElementById("sidebar");
+            if (sidebar.style.right === "0px") {
+                sidebar.style.right = "-250px";
+            } else {
+                sidebar.style.right = "0px";
+            }
+        }
+        document.addEventListener("click", function(event) {
+            let sidebar = document.getElementById("sidebar");
+            let menuBtn = document.querySelector(".menu-btn");
+            if (!sidebar.contains(event.target) && !menuBtn.contains(event.target)) {
+                sidebar.style.right = "-250px";
+            }
+        });
+    </script>
+
+</body>
+</html>

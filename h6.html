@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تسجيل الدخول | Kayan Chat</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            direction: rtl;
+            text-align: center;
+            background-color: #f4f4f4;
+            padding-top: 60px;
+        }
+        /* رأس الصفحة */
+        .header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: #333;
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            z-index: 1000;
+        }
+        .header img {
+            width: 30px;
+            height: 20px;
+            border-radius: 50%;
+        }
+        .header h1 {
+            flex-grow: 1;
+            font-size: 18px;
+        }
+        .menu-button {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+        }
+        /* نموذج تسجيل الدخول */
+        .login-container {
+            margin-top: 100px;
+            padding: 20px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            margin: 100px auto;
+        }
+        .login-container h2 {
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #333;
+        }
+        .login-container input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+        .login-container button {
+            width: 100%;
+            padding: 10px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .login-container button:hover {
+            background: #0056b3;
+        }
+        .login-container .signup-link {
+            margin-top: 15px;
+            font-size: 14px;
+        }
+        .login-container .signup-link a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        .login-container .signup-link a:hover {
+            text-decoration: underline;
+        }
+        /* حقوق الملكية */
+        .copyright {
+            background: #111;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            font-size: 14px;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- رأس الصفحة -->
+    <div class="header">
+        <img src="profile.jpg" alt="الصورة الشخصية">
+        <h1>كيان شات | Kayan Chat</h1>
+        <button class="menu-button" onclick="toggleMenu()">☰</button>
+    </div>
+
+    <!-- القائمة الجانبية -->
+    <div class="sidebar" id="sidebar">
+        <a href="h1.html">الرئيسية</a>
+        <a href="h2.html">الدردشة</a>
+        <a href="h3.html">دردشة فردية</a>
+        <a href="h4.html">دردشة جماعية</a>
+        <a href="h5.html">صفحة الإعدادات</a>
+        <a href="h6.html">صفحة تسجيل الدخول</a>
+        <a href="h7.html">صفحة تسجيل الاشتراك</a>
+        <a href="h8.html">صفحة من نحن</a>
+        <a href="h9.html">صفحة إنشاء مجموعة جديدة</a>
+        <a href="h10.html">صفحة ابحث عن محادثات عشوائية</a>
+    </div>
+
+    <!-- نموذج تسجيل الدخول -->
+    <div class="login-container">
+        <h2>تسجيل الدخول</h2>
+        <form action="#" method="POST">
+            <input type="text" id="username" name="username" placeholder="اسم المستخدم" required>
+            <input type="password" id="password" name="password" placeholder="كلمة المرور" required>
+            <button type="submit">تسجيل الدخول</button>
+        </form>
+        <div class="signup-link">
+            <p>ليس لديك حساب؟ <a href="h7.html">تسجيل الاشتراك</a></p>
+        </div>
+    </div>
+
+    <!-- حقوق الملكية -->
+    <div class="copyright">
+        &copy; 2025 جميع الحقوق محفوظة | كيان شات
+    </div>
+
+    <script>
+        function toggleMenu() {
+            var sidebar = document.getElementById("sidebar");
+            sidebar.classList.toggle("show-sidebar");
+        }
+    </script>
+
+</body>
+</html>

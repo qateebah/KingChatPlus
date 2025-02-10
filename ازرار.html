@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>كيان شات | Kayan Chat</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            direction: rtl;
+            text-align: center;
+            background-color: #f4f4f4;
+            padding-top: 60px;
+        }
+        /* رأس الصفحة */
+        .header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: #333;
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            z-index: 1000;
+        }
+        .header img {
+            width: 30px;
+            height: 20px;
+            border-radius: 50%;
+        }
+        .header h1 {
+            flex-grow: 1;
+            font-size: 18px;
+        }
+        .menu-button {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+        }
+        /* القائمة الجانبية */
+        .sidebar {
+            position: fixed;
+            top: 0;
+            right: -250px;
+            width: 250px;
+            height: 100%;
+            background: #444;
+            padding-top: 60px;
+            transition: 0.3s;
+        }
+        .sidebar a {
+            display: block;
+            padding: 10px;
+            color: white;
+            text-decoration: none;
+            border-bottom: 1px solid #666;
+        }
+        .sidebar a:hover {
+            background: #666;
+        }
+        .show-sidebar {
+            right: 0;
+        }
+        /* أزرار الواجهة */
+        .buttons {
+            margin: 20px 0;
+        }
+        .buttons button {
+            padding: 10px 15px;
+            margin: 5px;
+            border: none;
+            cursor: pointer;
+            background: #007bff;
+            color: white;
+            border-radius: 5px;
+        }
+        /* أيقونات التواصل الاجتماعي */
+        .social-icons {
+            position: fixed;
+            bottom: 100px;
+            left: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .social-icons a {
+            width: 40px;
+            height: 40px;
+            background-size: cover;
+            border-radius: 50%;
+            display: block;
+        }
+        /* خلفيات الأيقونات */
+        .snapchat { background-image: url('an.jpg'); }
+        .telegram { background-image: url('to.jpg'); }
+        .youtube { background-image: url('you.jpg'); }
+        .tiktok { background-image: url('to.jpg'); }
+        
+        /* معلومات المطور */
+        .developer-info {
+            margin-top: 50px;
+            padding: 20px;
+            background: #222;
+            color: white;
+            text-align: center;
+        }
+        .developer-info p {
+            margin: 5px 0;
+        }
+        .developer-info a {
+            color: #00bcd4;
+            text-decoration: none;
+        }
+        .developer-info a:hover {
+            text-decoration: underline;
+        }
+        /* حقوق الملكية */
+        .copyright {
+            background: #111;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- رأس الصفحة -->
+    <div class="header">
+        <img src="profile.jpg" alt="الصورة الشخصية">
+        <h1>كيان شات | Kayan Chat</h1>
+        <button class="menu-button" onclick="toggleMenu()">☰</button>
+    </div>
+
+    <!-- القائمة الجانبية -->
+    <div class="sidebar" id="sidebar">
+        <a href="h1.html">الرئيسية</a>
+        <a href="h2.html">الدردشة</a>
+        <a href="h3.html">دردشة فردية</a>
+        <a href="h4.html">دردشة جماعية</a>
+        <a href="h5.html">صفحة الإعدادات</a>
+        <a href="h6.html">صفحة تسجيل الدخول</a>
+        <a href="h7.html">صفحة تسجيل الاشتراك</a>
+        <a href="h8.html">صفحة من نحن</a>
+        <a href="h9.html">صفحة إنشاء مجموعة جديدة</a>
+        <a href="h10.html">صفحة ابحث عن محادثات عشوائية</a>
+    </div>
+
+    <!-- أزرار الواجهة -->
+    <div class="buttons">
+        <button>الدردشة</button>
+        <button>المجموعات</button>
+        <button>دردشة عشوائية</button>
+        <button>البحث</button>
+        <button>الإعدادات</button>
+    </div>
+
+    <!-- أيقونات التواصل الاجتماعي -->
+    <div class="social-icons">
+        <a href="https://www.snapchat.com" class="snapchat" target="_blank"></a>
+        <a href="https://www.telegram.org" class="telegram" target="_blank"></a>
+        <a href="https://www.youtube.com" class="youtube" target="_blank"></a>
+        <a href="https://www.tiktok.com" class="tiktok" target="_blank"></a>
+    </div>
+
+    <!-- معلومات المطور -->
+    <div class="developer-info">
+        <h3>مطور الموقع: علي قتيبة</h3>
+        <p>البريد الإلكتروني: <a href="mailto:ali@example.com">ali@example.com</a></p>
+        <p>رقم الهاتف: <a href="tel:+1234567890">+1234567890</a></p>
+    </div>
+
+    <!-- حقوق الملكية -->
+    <div class="copyright">
+        &copy; 2025 جميع الحقوق محفوظة | كيان شات
+    </div>
+
+    <script>
+        function toggleMenu() {
+            var sidebar = document.getElementById("sidebar");
+            sidebar.classList.toggle("show-sidebar");
+        }
+        document.addEventListener("click", function (event) {
+            var sidebar = document.getElementById("sidebar");
+            var menuButton = document.querySelector(".menu-button");
+            if (!sidebar.contains(event.target) && !menuButton.contains(event.target)) {
+                sidebar.classList.remove("show-sidebar");
+            }
+        });
+    </script>
+
+</body>
+</html>
